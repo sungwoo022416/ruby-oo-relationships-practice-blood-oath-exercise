@@ -58,13 +58,6 @@ class Follower
     # returns an Array of followers; they are the ten most active followers
 
     def self.top_ten
-        logging_into_hash = Follower.all.map do |follower| #assigning # of cults to indiviudal follower in has
-            {follower => follower.following_cults}
-        end
-        sorted_log = logging_into_hash.sort_by do |follower| 
-            follower.values[0]
-        end
-        sorted_log.reverse
-        sorted_log[0..9] #just presenting the list
+        Follower.all.max_by(10) {|follower| follower.following_cults}
     end
 end

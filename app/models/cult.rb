@@ -89,10 +89,9 @@ class Cult
     locations
     end
     
-
     def self.most_common_location
         location = count_locations.max_by {|location, count| count}
-        location[0]
+        location[0]    
     end
 end
 
